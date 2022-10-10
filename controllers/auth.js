@@ -1,6 +1,7 @@
 import { db } from "../db.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import nodemon from "nodemon";
 
 
 
@@ -50,7 +51,9 @@ export const login = (req, res) => {
 
     res
       .cookie("access_token", token, {
-        httpOnly: false,
+        httpOnly: true,
+        sameSite: "none",
+        secure: true
       })
       .status(200)
       .json({other, token});

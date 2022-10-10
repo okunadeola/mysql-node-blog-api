@@ -14,7 +14,7 @@ const app = express();
 
 
 dotenv.config();
-app.use(cors({ origin: true, credentials: true}));
+app.use(cors({ origin: "https://blog-cyan-one.vercel.app/", credentials: true}));
 app.use(express.json());
 app.use(cookieParser());
 
