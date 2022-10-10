@@ -36,6 +36,15 @@ dotenv.config();
 //   database:"blogs"
 // })
 
+// working
+// export const db = mysql.createConnection({
+//   host:"sql11.freesqldatabase.com",
+//   user:"sql11525265",
+//   password: "MNCiFbLhXI",
+//   database:"sql11525265"
+// })
+
+
 export const db = mysql.createConnection({
   host : process.env.DB_HOST,
   user: process.env.DB_USERNAME,
