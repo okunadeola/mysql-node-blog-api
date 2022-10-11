@@ -13,6 +13,7 @@ export const getPosts = (req, res) => {
   });
 };
 
+
 export const getPost = (req, res) => {
   const q =
     "SELECT p.id, `username`, `title`, `descr`, p.img, u.img AS userImg, `cat`,`date` FROM users u JOIN posts p ON u.id = p.uid WHERE p.id = ? ";
@@ -24,8 +25,10 @@ export const getPost = (req, res) => {
   });
 };
 
+
+
 export const addPost = (req, res) => {
-  const token = req.cookies.access_token;
+  const token = req.headers.authorization.split(" ")[1];
   
   if (!token) return res.status(401).json("Not authenticated!");
 
@@ -52,7 +55,7 @@ export const addPost = (req, res) => {
 };
 
 export const deletePost = (req, res) => {
-  const token = req.cookies.access_token;
+  const token = req.headers.authorization.split(" ")[1];
   if (!token) return res.status(401).json("Not authenticated!");
 
   jwt.verify(token, "jwtkey", (err, userInfo) => {
@@ -70,7 +73,7 @@ export const deletePost = (req, res) => {
 };
 
 export const updatePost = (req, res) => {
-  const token = req.cookies.access_token;
+  const token = req.headers.authorization.split(" ")[1];
   if (!token) return res.status(401).json("Not authenticated!");
 
   jwt.verify(token, "jwtkey", (err, userInfo) => {
@@ -93,7 +96,7 @@ export const updatePost = (req, res) => {
 
 
 export const postComment = (req, res) => {
-  const token = req.cookies.access_token;
+  const token = req.headers.authorization.split(" ")[1];
   if (!token) return res.status(401).json("Not authenticated!");
 
   jwt.verify(token, "jwtkey", (err, userInfo) => {
@@ -111,6 +114,8 @@ export const postComment = (req, res) => {
     });
   });
 };
+
+
 
 export const getComments = (req, res) => {
   const postId = req.params.id;

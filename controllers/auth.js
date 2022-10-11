@@ -50,13 +50,13 @@ export const login = (req, res) => {
     const { password, ...other } = data[0];
 
     res
-      .cookie("access_token", token, {
-        httpOnly: true,
-        sameSite: "none",
-        secure: true
-      })
-      .status(200)
-      .json({other, token});
+    .status(200)
+    .json({other, token});
+      // .cookie("access_token", token, {
+      //   httpOnly: true,
+      //   sameSite: "none",
+      //   secure: true
+      // })
   });
 };
 
