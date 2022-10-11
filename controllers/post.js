@@ -28,7 +28,7 @@ export const getPost = (req, res) => {
 
 
 export const addPost = (req, res) => {
-  const token = req.headers.authorization.split(" ")[1];
+  const token = req.headers.authorization.split(' ')[1];
   
   if (!token) return res.status(401).json("Not authenticated!");
 
@@ -55,7 +55,7 @@ export const addPost = (req, res) => {
 };
 
 export const deletePost = (req, res) => {
-  const token = req.headers.authorization.split(" ")[1];
+  const token = req.headers.authorization.split(' ')[1];
   if (!token) return res.status(401).json("Not authenticated!");
 
   jwt.verify(token, "jwtkey", (err, userInfo) => {
@@ -73,7 +73,7 @@ export const deletePost = (req, res) => {
 };
 
 export const updatePost = (req, res) => {
-  const token = req.headers.authorization.split(" ")[1];
+  const token = req.headers.authorization.split(' ')[1];
   if (!token) return res.status(401).json("Not authenticated!");
 
   jwt.verify(token, "jwtkey", (err, userInfo) => {
@@ -96,7 +96,8 @@ export const updatePost = (req, res) => {
 
 
 export const postComment = (req, res) => {
-  const token = req.headers.authorization.split(" ")[1];
+  console(req.headers.authorization)
+  const token = req.headers.authorization.split(' ')[1];
   if (!token) return res.status(401).json("Not authenticated!");
 
   jwt.verify(token, "jwtkey", (err, userInfo) => {

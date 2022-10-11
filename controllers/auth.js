@@ -52,11 +52,11 @@ export const login = (req, res) => {
     res
     .status(200)
     .json({other, token});
-      // .cookie("access_token", token, {
-      //   httpOnly: true,
-      //   sameSite: "none",
-      //   secure: true
-      // })
+  //     // .cookie("access_token", token, {
+  //     //   httpOnly: true,
+  //     //   sameSite: "none",
+  //     //   secure: true
+  //     // })
   });
 };
 
